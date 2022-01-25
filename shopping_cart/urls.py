@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from api_app import views
+from rest_framework.authtoken.views import obtain_auth_token
+from api_app import views as av
+from users import views as uv
 
+# Routers provide an easy way of automatically determining the URL conf.
 router = DefaultRouter()
-router.register('cartitems-viewset', views.CartItemViewSet)
+router.register('cartitems', av.CartItemViewSet)
+router.register(r'users', uv.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api/', include('api_app.urls')),
-    path('api-cartitems/', include(router.urls))
+    path('api/viewset/', include(router.urls)),
 ]

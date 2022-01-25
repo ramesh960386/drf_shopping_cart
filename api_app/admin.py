@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import CartItem
-from rest_framework.authtoken.models import Token
 
 
 # class TokenAdmin(admin.ModelAdmin):
