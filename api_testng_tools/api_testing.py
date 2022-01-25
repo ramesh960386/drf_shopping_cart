@@ -5,6 +5,8 @@ headers = {
     'Authorization': 'Token c0efa4be06a92f8b60dc4f818b30eb468041fdd7'
 }
 
+# curl -X GET http://127.0.0.1:8000/api/viewset/users/ -H 'Authorization: Token cd81ebaa0b1e3b07b8703eddf7aa92afa50523f8'
+# https://simpleisbetterthancomplex.com/tutorial/2018/12/19/how-to-use-jwt-authentication-with-django-rest-framework.html
 
 def getToken(username, password):
     url = f"http://127.0.0.1:8000/api-token-auth/ username={username} password={password}"
